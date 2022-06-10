@@ -37,9 +37,9 @@ func _physics_process(delta):
 	var jump = Input.is_action_pressed("jump")
 	vel.x = 0
 	if left:
-		vel.x -= speed*delta
-	if right:
 		vel.x += speed*delta
+	if right:
+		vel.x -= speed*delta
 	
 	vel = move_and_slide(vel,Vector2.UP)
 	
