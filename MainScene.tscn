@@ -97,12 +97,12 @@ current = true
 script = ExtResource( 4 )
 
 [node name="Coin" parent="." instance=ExtResource( 5 )]
-position = Vector2( 608, 160 )
+position = Vector2( 672, 416 )
 
 [node name="Coin3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 544, 160 )
+position = Vector2( 760, 240 )
 value = 100
 
 [node name="Coin2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 352, 160 )
+position = Vector2( 456, 312 )
 value = 1
