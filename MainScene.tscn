@@ -11,7 +11,7 @@
 script = ExtResource( 6 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 672, 384 )
+position = Vector2( 800, 72 )
 
 [node name="Tile" parent="." instance=ExtResource( 2 )]
 position = Vector2( 416, 544 )
@@ -38,7 +38,7 @@ position = Vector2( 800, 544 )
 position = Vector2( 864, 544 )
 
 [node name="Tile14" parent="." instance=ExtResource( 2 )]
-position = Vector2( 928, 480 )
+position = Vector2( 800, 224 )
 
 [node name="Tile15" parent="." instance=ExtResource( 2 )]
 position = Vector2( 800, 352 )
@@ -47,10 +47,10 @@ position = Vector2( 800, 352 )
 position = Vector2( 672, 480 )
 
 [node name="Tile17" parent="." instance=ExtResource( 2 )]
-position = Vector2( 608, 224 )
+position = Vector2( 800, 160 )
 
 [node name="Tile18" parent="." instance=ExtResource( 2 )]
-position = Vector2( 544, 224 )
+position = Vector2( 800, 288 )
 
 [node name="Tile19" parent="." instance=ExtResource( 2 )]
 position = Vector2( 352, 224 )
