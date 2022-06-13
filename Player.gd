@@ -23,6 +23,8 @@ var gravity : int = 3000
 var vel : Vector2 = Vector2()
 
 onready var sprite : Sprite = get_node("Sprite")
+onready var uiscore : Node = get_node("/root/MainScene/CanvasLayer/UI")
+onready var audio_player : Node = get_node("/root/MainScene/Camera2D/AudioPlayer")
 
 func _ready():
 	pass
@@ -54,6 +56,8 @@ func _physics_process(delta):
 
 func collect_coin(value):
 	score += value
+	uiscore.set_score_text(score)
+	audio_player.play_coin_sfx()
 
 func kill():
 	get_tree().reload_current_scene()
