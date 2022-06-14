@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dirt.png-cc1f572aa3f938ae2d8896503dd0fe34.stex"
+path="res://.import/stairsDown.png-8a97cf603739f008a14441b67502fc76.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/dirt.png"
-dest_files=[ "res://.import/dirt.png-cc1f572aa3f938ae2d8896503dd0fe34.stex" ]
+source_file="res://Sprites/stairsDown.png"
+dest_files=[ "res://.import/stairsDown.png-8a97cf603739f008a14441b67502fc76.stex" ]
 
 [params]
 

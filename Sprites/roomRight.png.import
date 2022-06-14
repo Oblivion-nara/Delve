@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dirt.png-cc1f572aa3f938ae2d8896503dd0fe34.stex"
+path="res://.import/roomRight.png-179a7eaf4916cc76be1fbfd19f7a02ed.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/dirt.png"
-dest_files=[ "res://.import/dirt.png-cc1f572aa3f938ae2d8896503dd0fe34.stex" ]
+source_file="res://Sprites/roomRight.png"
+dest_files=[ "res://.import/roomRight.png-179a7eaf4916cc76be1fbfd19f7a02ed.stex" ]
 
 [params]
 
