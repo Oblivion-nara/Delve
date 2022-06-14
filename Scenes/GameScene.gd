@@ -4,7 +4,7 @@ onready var tile = preload("res://Scenes/Tile.tscn")
 onready var tiles = $Tiles
 
 var mapWidth = 15
-var mapHeight = 5
+var mapHeight = 10
 var map
 
 func _ready():

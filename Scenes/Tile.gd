@@ -89,6 +89,7 @@ func _on_Control_gui_input(event):
 func _on_ControlLeft_gui_input(event):
 	if event is InputEventMouseButton:
 		if event.is_action_pressed("left_click") and isRoom:
+			print ("left")
 			var adjacent = get_adjacent()
 			adjacent[0].isRoom = true
 			adjacent[0].isDoorRight = true
@@ -99,6 +100,7 @@ func _on_ControlLeft_gui_input(event):
 func _on_ControlRight_gui_input(event):
 	if event is InputEventMouseButton:
 		if event.is_action_pressed("left_click") and isRoom:
+			print ("right")
 			var adjacent = get_adjacent()
 			adjacent[1].isRoom = true
 			adjacent[1].isDoorLeft = true
@@ -106,12 +108,19 @@ func _on_ControlRight_gui_input(event):
 			adjacent[1].update()
 			update()
 
-
 func _on_ControlDown_gui_input(event):
 	if event is InputEventMouseButton:
 		if event.is_action_pressed("left_click") and isRoom:
+			print ("down")
 			var adjacent = get_adjacent()
 			adjacent[2].isRoom = true
 			adjacent[2].isStairs = true
 			adjacent[2].update()
 			update()
+
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.is_action_pressed("left_click"):
+			if (event.position.x < global_position.x-48 or event.position.x > global_position.x+48) or (event.position.y < global_position.y-48 or event.position.y > global_position.y+48):
+				yield(get_tree().create_timer(0.01), "timeout")
+				update()

@@ -23,8 +23,11 @@ func _ready():
 			var newtile = tile.instance()
 			newtile.position = Vector2((i+0.5)*tilewidth*scalex,(j+0.5)*tileheight*scaley)
 			add_child(newtile)
-	
 
-func _process(delta):
-	if Input.is_action_pressed("ui_cancel"):
+func _input(event):
+	if event.is_action_pressed("ui_cancel"):
 		get_tree().quit()
+
+#func _process(delta):
+#	if Input.is_action_pressed("ui_cancel"):
+#		get_tree().quit()
