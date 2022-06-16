@@ -17,8 +17,6 @@ onready var doorLeft = $Doors/DoorLeft
 onready var doorRight = $Doors/DoorRight
 onready var stairs = $Stairs
 
-# this is all very very bad. There's some weird click detection going on with the building icons that I don't know how to fix, and it breaks if you go too low.
-
 func _ready():
 	update()
 
@@ -89,7 +87,7 @@ func get_adjacent(): # get the tiles adjacted to this tile
 
 func _on_Control_gui_input(event):
 	if event is InputEventMouseButton:
-		if event.is_action_pressed("left_click") and isRoom:
+		if event.is_action_pressed("left_click") and isRoom and get_parent().get_parent().build:
 			show_arrows()
 
 func _on_ControlLeft_gui_input(event):
@@ -101,6 +99,7 @@ func _on_ControlLeft_gui_input(event):
 				adjacent[1].isDoorRight = true
 				isDoorLeft = true
 				adjacent[1].update()
+				build()
 			update()
 
 func _on_ControlRight_gui_input(event):
@@ -112,6 +111,7 @@ func _on_ControlRight_gui_input(event):
 				adjacent[2].isDoorLeft = true
 				isDoorRight = true
 				adjacent[2].update()
+				build()
 			update()
 
 func _on_ControlDown_gui_input(event):
@@ -122,14 +122,22 @@ func _on_ControlDown_gui_input(event):
 				adjacent[3].isRoom = true
 				adjacent[3].isStairs = true
 				adjacent[3].update()
+				build()
 			update()
 
 func _input(event):
 	if event is InputEventMouseButton:
-		if event.is_action_pressed("left_click"):
-			if (event.global_position.x < global_position.x-32 or event.global_position.x > global_position.x+31) or (event.global_position.y < global_position.y-32 or event.global_position.y > global_position.y+31):
+		if event.is_action_pressed("left_click") and isRoom:
+			print ("click")
+			var x = get_global_mouse_position().x
+			var y = get_global_mouse_position().y
+			if (x < position.x-32 or x > position.x+31) or (y < position.y-32 or y > position.y+31):
 				yield(get_tree().create_timer(0.01), "timeout")
 				update()
 
 func set_texture(t):
 	$Dirt.texture = t
+
+func build():
+	get_parent().get_parent().build = false
+	get_parent().get_parent().buildUI.text = "Build\nUnavailable"

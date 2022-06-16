@@ -10,7 +10,6 @@
 [ext_resource path="res://Sprites/stairsDown.png" type="Texture" id=8]
 
 [node name="Dirt" type="Node2D"]
-position = Vector2( 32, 32 )
 script = ExtResource( 5 )
 
 [node name="Dirt" type="Sprite" parent="."]
