@@ -128,7 +128,6 @@ func _on_ControlDown_gui_input(event):
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.is_action_pressed("left_click") and isRoom:
-			print ("click")
 			var x = get_global_mouse_position().x
 			var y = get_global_mouse_position().y
 			if (x < position.x-32 or x > position.x+31) or (y < position.y-32 or y > position.y+31):

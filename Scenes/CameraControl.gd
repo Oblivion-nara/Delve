@@ -14,7 +14,7 @@ func _physics_process(delta: float) -> void:
 	zoom = lerp(zoom, _target_zoom * Vector2.ONE, ZOOM_RATE * delta)
 	set_physics_process(not is_equal_approx(zoom.x, _target_zoom))
 
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.is_pressed():
 			if event.button_index == BUTTON_WHEEL_UP:

@@ -1,18 +1,21 @@
 extends Node2D
 
 onready var tile = preload("res://Scenes/Tile.tscn")
+
 onready var level2Transition = preload("res://Sprites/dirtTransition1.png")
 onready var level3Transition = preload("res://Sprites/dirtTransition2.png")
 onready var level2Dirt = preload("res://Sprites/dirt2.png")
 onready var level3Dirt = preload("res://Sprites/dirt3.png")
-onready var tiles = $Tiles
-onready var turnCounter = $CanvasLayer/EndTurnButton/Turns
-onready var matsUI = $CanvasLayer/Resources/Materials
-onready var toolsUI = $CanvasLayer/Resources/Tools
-onready var buildUI = $CanvasLayer/Abilities/Build
-onready var tradeUI = $CanvasLayer/Abilities/Trade
+onready var startingRoom = preload("res://Sprites/bigRoom.png")
 
-var mapWidth = 15
+onready var tiles = $Tiles
+onready var turnCounter = $CanvasLayer/HBoxContainer/EndTurnButton/Turns
+onready var matsUI = $CanvasLayer/HBoxContainer/Resources/Materials
+onready var toolsUI = $CanvasLayer/HBoxContainer/Resources/Tools
+onready var buildUI = $CanvasLayer/HBoxContainer/Abilities/Build
+onready var tradeUI = $CanvasLayer/HBoxContainer/Abilities/Trade
+
+var mapWidth = 16
 var mapHeight = 10
 var level2Depth = 3
 var level3Depth = 6
@@ -33,7 +36,7 @@ func generate_map():
 	for r in mapHeight:
 		for c in mapWidth:
 			var t = tile.instance()
-			t.position = Vector2(c, r) * 64 + Vector2(64,64)
+			t.position = Vector2(c, r) * 64 + Vector2(32,160)
 			if r > level3Depth:
 				t.set_texture(level3Dirt)
 			elif r == level3Depth:
@@ -47,10 +50,14 @@ func generate_map():
 	
 	for i in tiles.get_children():
 		var x = mapWidth*0.5+0.5
-		if i.position == Vector2(64*x,64):
+		if i.position == Vector2(64*x,160):
 			i.isRoom = true
 			i.isStairs = true
 			i.update()
+			var s = Sprite.new()
+			self.add_child(s)
+			s.texture = startingRoom
+			s.global_position = i.position + Vector2(0,-32)
 
 func end_turn():
 	build = true
