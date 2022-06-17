@@ -16,17 +16,18 @@ layer = -10
 motion_mirroring = Vector2( 1024, 0 )
 
 [node name="LongGrass" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 544, 96 )
+position = Vector2( 480, 64 )
 texture = ExtResource( 3 )
 
 [node name="ParallaxBackgroundMountains" type="ParallaxBackground" parent="."]
 layer = -50
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackgroundMountains"]
+motion_scale = Vector2( 0.5, 1 )
 motion_mirroring = Vector2( 1300, 0 )
 
 [node name="Background" type="Sprite" parent="ParallaxBackgroundMountains/ParallaxLayer"]
-position = Vector2( 648, -168 )
+position = Vector2( 648, -192 )
 z_index = -5
 texture = ExtResource( 5 )
 

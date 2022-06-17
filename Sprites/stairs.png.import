@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/border.png-cbd1fefbc64f0bb4932e635cd093da8d.stex"
+path="res://.import/stairs.png-13a673bf2e471b5c6dcb53f1aa9524c5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/border.png"
-dest_files=[ "res://.import/border.png-cbd1fefbc64f0bb4932e635cd093da8d.stex" ]
+source_file="res://Sprites/stairs.png"
+dest_files=[ "res://.import/stairs.png-13a673bf2e471b5c6dcb53f1aa9524c5.stex" ]
 
 [params]
 

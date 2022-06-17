@@ -62,7 +62,7 @@ func generate_map():
 			var s = Sprite.new()
 			self.add_child(s)
 			s.texture = startingRoom
-			s.global_position = i.position + Vector2(0,-tilesize/2.0)
+			s.global_position = i.position + Vector2(0,-tilesize/2)
 
 func end_turn():
 	build = true
