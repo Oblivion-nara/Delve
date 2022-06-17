@@ -1,13 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/CameraControl.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/GameScene.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/LongGrass.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/border.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/background.png" type="Texture" id=5]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = -10
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2( 1024, 0 )
@@ -16,14 +19,81 @@ motion_mirroring = Vector2( 1024, 0 )
 position = Vector2( 544, 96 )
 texture = ExtResource( 3 )
 
+[node name="ParallaxBackgroundMountains" type="ParallaxBackground" parent="."]
+layer = -50
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackgroundMountains"]
+motion_mirroring = Vector2( 1300, 0 )
+
+[node name="Background" type="Sprite" parent="ParallaxBackgroundMountains/ParallaxLayer"]
+position = Vector2( 648, -168 )
+z_index = -5
+texture = ExtResource( 5 )
+
+[node name="ParallaxBorder" type="ParallaxBackground" parent="."]
+layer = 100
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBorder"]
+motion_mirroring = Vector2( 0, 0.01 )
+
+[node name="Border" type="Sprite" parent="ParallaxBorder/ParallaxLayer"]
+position = Vector2( -32, 32 )
+texture = ExtResource( 4 )
+
+[node name="Border11" type="Sprite" parent="ParallaxBorder/ParallaxLayer"]
+position = Vector2( -32, -32 )
+texture = ExtResource( 4 )
+
+[node name="Border2" type="Sprite" parent="ParallaxBorder/ParallaxLayer"]
+position = Vector2( -32, 96 )
+texture = ExtResource( 4 )
+
+[node name="Border3" type="Sprite" parent="ParallaxBorder/ParallaxLayer"]
+position = Vector2( -32, 160 )
+texture = ExtResource( 4 )
+
+[node name="Border4" type="Sprite" parent="ParallaxBorder/ParallaxLayer"]
+position = Vector2( -32, 224 )
+texture = ExtResource( 4 )
+
+[node name="Border5" type="Sprite" parent="ParallaxBorder/ParallaxLayer"]
+position = Vector2( -32, 288 )
+texture = ExtResource( 4 )
+
+[node name="Border6" type="Sprite" parent="ParallaxBorder/ParallaxLayer"]
+position = Vector2( -32, 352 )
+texture = ExtResource( 4 )
+
+[node name="Border7" type="Sprite" parent="ParallaxBorder/ParallaxLayer"]
+position = Vector2( -32, 416 )
+texture = ExtResource( 4 )
+
+[node name="Border8" type="Sprite" parent="ParallaxBorder/ParallaxLayer"]
+position = Vector2( -32, 480 )
+texture = ExtResource( 4 )
+
+[node name="Border9" type="Sprite" parent="ParallaxBorder/ParallaxLayer"]
+position = Vector2( -32, 544 )
+texture = ExtResource( 4 )
+
+[node name="Border10" type="Sprite" parent="ParallaxBorder/ParallaxLayer"]
+position = Vector2( -32, 608 )
+texture = ExtResource( 4 )
+
 [node name="Tiles" type="Node2D" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 512, 304 )
 current = true
+limit_left = -64
+limit_top = -480
+limit_right = 1500
+editor_draw_limits = true
 script = ExtResource( 1 )
 
 [node name="Tween" type="Tween" parent="Camera2D"]
+repeat = true
+playback/repeat = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -50,7 +120,7 @@ margin_bottom = 39.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 text = "Materials
-20"
+20/50"
 align = 1
 
 [node name="Tools" type="Label" parent="CanvasLayer/HBoxContainer/Resources"]
@@ -61,7 +131,7 @@ margin_bottom = 39.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 text = "Tools
-20"
+20/50"
 align = 1
 
 [node name="EndTurnButton" type="Button" parent="CanvasLayer/HBoxContainer"]
@@ -120,7 +190,9 @@ I want to add darkness to the underground
 so that you can only see 1 space away
 from where you have dug.
 The camera should also only be able to move as far 
-as you have explored."
+as you have explored.
+
+account for screensize with top dirt layer."
 percent_visible = 0.0
 
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/EndTurnButton" to="." method="end_turn"]

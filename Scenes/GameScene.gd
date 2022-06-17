@@ -17,8 +17,8 @@ onready var tradeUI = $CanvasLayer/HBoxContainer/Abilities/Trade
 
 var mapWidth = 16
 var mapHeight = 10
-var level2Depth = 3
-var level3Depth = 6
+var level2Depth = 2
+var level3Depth = 5
 var map
 var turn = 1
 
@@ -28,15 +28,20 @@ var tools = 20
 var build = true
 var trade = true
 
+var tilesize = 64
+onready var camera = get_node("Camera2D")
+
 func _ready():
 	generate_map()
 	write_text()
+	camera.set_scene(self)
+	
 
 func generate_map():
 	for r in mapHeight:
 		for c in mapWidth:
 			var t = tile.instance()
-			t.position = Vector2(c, r) * 64 + Vector2(32,160)
+			t.position = Vector2(c, r) * tilesize + Vector2(tilesize/2.0,128)
 			if r > level3Depth:
 				t.set_texture(level3Dirt)
 			elif r == level3Depth:
@@ -50,14 +55,14 @@ func generate_map():
 	
 	for i in tiles.get_children():
 		var x = mapWidth*0.5+0.5
-		if i.position == Vector2(64*x,160):
+		if i.position == Vector2(tilesize*x,128):
 			i.isRoom = true
 			i.isStairs = true
 			i.update()
 			var s = Sprite.new()
 			self.add_child(s)
 			s.texture = startingRoom
-			s.global_position = i.position + Vector2(0,-32)
+			s.global_position = i.position + Vector2(0,-tilesize/2.0)
 
 func end_turn():
 	build = true
@@ -71,6 +76,8 @@ func end_turn():
 		x.update()
 
 func _input(event):
+	if event.is_action_pressed("ui_cancel"):
+		get_tree().quit()
 	if event.is_action_pressed("ui_select"):
 		end_turn()
 

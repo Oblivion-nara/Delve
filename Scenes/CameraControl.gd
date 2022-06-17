@@ -8,6 +8,8 @@ const ZOOM_INCREMENT: float = 0.1
 
 var _target_zoom: float = 1.0
 
+var scene = null
+
 onready var _tween: Tween = $Tween
 
 func _physics_process(delta: float) -> void:
@@ -26,6 +28,18 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		if event.button_mask == BUTTON_MASK_RIGHT:
 			position -= event.relative * zoom
+			if position.x < self.limit_left:
+				position.x = self.limit_left
+			if position.x > self.limit_right:
+				position.x = self.limit_right
+			if position.y < self.limit_top:
+				position.y = self.limit_top
+#			if position.y > self.limit_bottom:
+#				position.y = self.limit_bottom
+
+func set_scene(scene):
+	self.scene = scene
+	self.limit_right = scene.tilesize * (scene.mapWidth + 1)
 
 func zoom_in() -> void:
 	_target_zoom = max(_target_zoom - ZOOM_INCREMENT, MIN_ZOOM)

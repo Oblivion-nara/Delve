@@ -4,6 +4,7 @@ var isRoom = false
 var isDoorLeft = false
 var isDoorRight = false
 var isStairs = false
+var currentLevel = 1
 
 onready var game = get_parent().get_parent()
 
@@ -122,6 +123,7 @@ func _on_ControlDown_gui_input(event):
 				adjacent[3].isRoom = true
 				adjacent[3].isStairs = true
 				adjacent[3].update()
+				
 				build()
 			update()
 
