@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/CameraControl.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/GameScene.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/LongGrass.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/border.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/background.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/black.png" type="Texture" id=6]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
@@ -31,55 +32,116 @@ position = Vector2( 648, -192 )
 z_index = -5
 texture = ExtResource( 5 )
 
-[node name="ParallaxBorder" type="ParallaxBackground" parent="."]
+[node name="ParallaxBorderL" type="ParallaxBackground" parent="."]
 layer = 100
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBorder"]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBorderL"]
 motion_mirroring = Vector2( 0, 0.01 )
 
-[node name="Border" type="Sprite" parent="ParallaxBorder/ParallaxLayer"]
+[node name="Border" type="Sprite" parent="ParallaxBorderL/ParallaxLayer"]
 position = Vector2( -32, 32 )
 texture = ExtResource( 4 )
 
-[node name="Border11" type="Sprite" parent="ParallaxBorder/ParallaxLayer"]
+[node name="Border11" type="Sprite" parent="ParallaxBorderL/ParallaxLayer"]
 position = Vector2( -32, -32 )
 texture = ExtResource( 4 )
 
-[node name="Border2" type="Sprite" parent="ParallaxBorder/ParallaxLayer"]
+[node name="Border2" type="Sprite" parent="ParallaxBorderL/ParallaxLayer"]
 position = Vector2( -32, 96 )
 texture = ExtResource( 4 )
 
-[node name="Border3" type="Sprite" parent="ParallaxBorder/ParallaxLayer"]
+[node name="Border3" type="Sprite" parent="ParallaxBorderL/ParallaxLayer"]
 position = Vector2( -32, 160 )
 texture = ExtResource( 4 )
 
-[node name="Border4" type="Sprite" parent="ParallaxBorder/ParallaxLayer"]
+[node name="Border4" type="Sprite" parent="ParallaxBorderL/ParallaxLayer"]
 position = Vector2( -32, 224 )
 texture = ExtResource( 4 )
 
-[node name="Border5" type="Sprite" parent="ParallaxBorder/ParallaxLayer"]
+[node name="Border5" type="Sprite" parent="ParallaxBorderL/ParallaxLayer"]
 position = Vector2( -32, 288 )
 texture = ExtResource( 4 )
 
-[node name="Border6" type="Sprite" parent="ParallaxBorder/ParallaxLayer"]
+[node name="Border6" type="Sprite" parent="ParallaxBorderL/ParallaxLayer"]
 position = Vector2( -32, 352 )
 texture = ExtResource( 4 )
 
-[node name="Border7" type="Sprite" parent="ParallaxBorder/ParallaxLayer"]
+[node name="Border7" type="Sprite" parent="ParallaxBorderL/ParallaxLayer"]
 position = Vector2( -32, 416 )
 texture = ExtResource( 4 )
 
-[node name="Border8" type="Sprite" parent="ParallaxBorder/ParallaxLayer"]
+[node name="Border8" type="Sprite" parent="ParallaxBorderL/ParallaxLayer"]
 position = Vector2( -32, 480 )
 texture = ExtResource( 4 )
 
-[node name="Border9" type="Sprite" parent="ParallaxBorder/ParallaxLayer"]
+[node name="Border9" type="Sprite" parent="ParallaxBorderL/ParallaxLayer"]
 position = Vector2( -32, 544 )
 texture = ExtResource( 4 )
 
-[node name="Border10" type="Sprite" parent="ParallaxBorder/ParallaxLayer"]
+[node name="Border10" type="Sprite" parent="ParallaxBorderL/ParallaxLayer"]
 position = Vector2( -32, 608 )
 texture = ExtResource( 4 )
+
+[node name="ParallaxBorderR" type="ParallaxBackground" parent="."]
+layer = 100
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBorderR"]
+motion_mirroring = Vector2( 0, 0.01 )
+
+[node name="Border" type="Sprite" parent="ParallaxBorderR/ParallaxLayer"]
+position = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+flip_h = true
+
+[node name="Border11" type="Sprite" parent="ParallaxBorderR/ParallaxLayer"]
+position = Vector2( 32, -32 )
+texture = ExtResource( 4 )
+flip_h = true
+
+[node name="Border2" type="Sprite" parent="ParallaxBorderR/ParallaxLayer"]
+position = Vector2( 32, 96 )
+texture = ExtResource( 4 )
+flip_h = true
+
+[node name="Border3" type="Sprite" parent="ParallaxBorderR/ParallaxLayer"]
+position = Vector2( 32, 160 )
+texture = ExtResource( 4 )
+flip_h = true
+
+[node name="Border4" type="Sprite" parent="ParallaxBorderR/ParallaxLayer"]
+position = Vector2( 32, 224 )
+texture = ExtResource( 4 )
+flip_h = true
+
+[node name="Border5" type="Sprite" parent="ParallaxBorderR/ParallaxLayer"]
+position = Vector2( 32, 288 )
+texture = ExtResource( 4 )
+flip_h = true
+
+[node name="Border6" type="Sprite" parent="ParallaxBorderR/ParallaxLayer"]
+position = Vector2( 32, 352 )
+texture = ExtResource( 4 )
+flip_h = true
+
+[node name="Border7" type="Sprite" parent="ParallaxBorderR/ParallaxLayer"]
+position = Vector2( 32, 416 )
+texture = ExtResource( 4 )
+flip_h = true
+
+[node name="Border8" type="Sprite" parent="ParallaxBorderR/ParallaxLayer"]
+position = Vector2( 32, 480 )
+texture = ExtResource( 4 )
+flip_h = true
+
+[node name="Border9" type="Sprite" parent="ParallaxBorderR/ParallaxLayer"]
+position = Vector2( 32, 544 )
+texture = ExtResource( 4 )
+flip_h = true
+
+[node name="Border10" type="Sprite" parent="ParallaxBorderR/ParallaxLayer"]
+position = Vector2( 32, 608 )
+texture = ExtResource( 4 )
+flip_h = true
 
 [node name="Tiles" type="Node2D" parent="."]
 
@@ -195,5 +257,14 @@ as you have explored.
 
 account for screensize with top dirt layer."
 percent_visible = 0.0
+
+[node name="backgroundBlack" type="CanvasLayer" parent="."]
+layer = -128
+
+[node name="Black" type="Sprite" parent="backgroundBlack"]
+show_behind_parent = true
+position = Vector2( 512, 352 )
+scale = Vector2( 18, 11 )
+texture = ExtResource( 6 )
 
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/EndTurnButton" to="." method="end_turn"]

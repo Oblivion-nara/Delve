@@ -4,6 +4,10 @@ onready var tile = preload("res://Scenes/Tile.tscn")
 
 onready var level2Transition = preload("res://Sprites/dirtTransition1.png")
 onready var level3Transition = preload("res://Sprites/dirtTransition2.png")
+onready var level1darkTransition = preload("res://Sprites/darkTransition1.png")
+onready var level2darkTransition = preload("res://Sprites/darkTransition2.png")
+onready var level3darkTransition = preload("res://Sprites/darkTransition3.png")
+onready var black = preload("res://Sprites/black.png")
 onready var level2Dirt = preload("res://Sprites/dirt2.png")
 onready var level3Dirt = preload("res://Sprites/dirt3.png")
 onready var startingRoom = preload("res://Sprites/bigRoom.png")
@@ -15,10 +19,12 @@ onready var toolsUI = $CanvasLayer/HBoxContainer/Resources/Tools
 onready var buildUI = $CanvasLayer/HBoxContainer/Abilities/Build
 onready var tradeUI = $CanvasLayer/HBoxContainer/Abilities/Trade
 
-var mapWidth = 16
+var mapWidth = 14
 var mapHeight = 10
+var startHeight = 128
 var level2Depth = 2
 var level3Depth = 5
+var dug_depth = 1
 var map
 var turn = 1
 
@@ -35,27 +41,22 @@ func _ready():
 	generate_map()
 	write_text()
 	camera.set_scene(self)
+	#create right border from left
+	get_node("ParallaxBorderR").offset.x = tilesize * mapWidth
 	
 
 func generate_map():
-	for r in mapHeight:
+	for r in mapHeight+1:
 		for c in mapWidth:
 			var t = tile.instance()
-			t.position = Vector2(c, r) * tilesize + Vector2(tilesize/2.0,128)
-			if r > level3Depth:
-				t.set_texture(level3Dirt)
-			elif r == level3Depth:
-				t.set_texture(level3Transition)
-			elif r > level2Depth:
-				t.set_texture(level2Dirt)
-			elif r == level2Depth:
-				t.set_texture(level2Transition)
+			t.position = Vector2(c, r) * tilesize + Vector2(tilesize/2.0,startHeight)
+			gen_textures(r,c,t)
 			tiles.add_child(t)
 	map = tiles.get_children()
 	
 	for i in tiles.get_children():
 		var x = mapWidth*0.5+0.5
-		if i.position == Vector2(tilesize*x,128):
+		if i.position == Vector2(tilesize*x,startHeight):
 			i.isRoom = true
 			i.isStairs = true
 			i.update()
@@ -64,6 +65,32 @@ func generate_map():
 			s.texture = startingRoom
 			s.global_position = i.position + Vector2(0,-tilesize/2)
 
+func gen_textures(r,c,t):
+			if r > dug_depth+1:
+				t.set_texture(black)
+			elif r > level3Depth:
+				if r > dug_depth:
+					t.set_texture(level3darkTransition)
+				else:
+					t.set_texture(level3Dirt)
+			elif r == level3Depth:
+				if r > dug_depth:
+					t.set_texture(level2darkTransition)
+				else:
+					t.set_texture(level3Transition)
+			elif r > level2Depth:
+				if r > dug_depth:
+					t.set_texture(level2darkTransition)
+				else:
+					t.set_texture(level2Dirt)
+			elif r == level2Depth:
+				if r > dug_depth:
+					t.set_texture(level1darkTransition)
+				else:
+					t.set_texture(level2Transition)
+			elif r > dug_depth:
+				t.set_texture(level1darkTransition)
+	
 func end_turn():
 	build = true
 	buildUI.text = "Build\nAvailable"
