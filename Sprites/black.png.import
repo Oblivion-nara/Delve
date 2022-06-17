@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Coin.png-c2cd5c0bdd61476fb24bcd9448984ab7.stex"
+path="res://.import/black.png-defb2f816b411f1c1ad5e14f99a71f4e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Coin.png"
-dest_files=[ "res://.import/Coin.png-c2cd5c0bdd61476fb24bcd9448984ab7.stex" ]
+source_file="res://Sprites/black.png"
+dest_files=[ "res://.import/black.png-defb2f816b411f1c1ad5e14f99a71f4e.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

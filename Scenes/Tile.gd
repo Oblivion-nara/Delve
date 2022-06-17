@@ -1,5 +1,6 @@
 extends Node2D
 
+var location : Vector2
 var isRoom = false
 var isDoorLeft = false
 var isDoorRight = false
@@ -140,5 +141,8 @@ func set_texture(t):
 	$Dirt.texture = t
 
 func build():
-	get_parent().get_parent().build = false
-	get_parent().get_parent().buildUI.text = "Build\nUnavailable"
+	game.build = false
+	game.buildUI.text = "Build\nUnavailable"
+	print(self.position.x / game.tilesize +0.5)
+	print((self.position.y-game.startHeight) / game.tilesize +1)
+	game.gen_textures(self.position.x / game.tilesize +0.5,(self.position.y-game.startHeight) / game.tilesize +1,self)
