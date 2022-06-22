@@ -75,7 +75,7 @@ margin_top = -16.0
 
 [node name="ArrowUp" type="Sprite" parent="Explore"]
 visible = false
-position = Vector2( 0, -32 )
+position = Vector2( 0, -34 )
 texture = ExtResource( 4 )
 
 [node name="ExploreUp" type="Control" parent="Explore/ArrowUp"]
@@ -114,7 +114,7 @@ margin_top = -16.0
 
 [node name="ArrowDown" type="Sprite" parent="Explore"]
 visible = false
-position = Vector2( 0, 32 )
+position = Vector2( 0, 34 )
 texture = ExtResource( 8 )
 
 [node name="ExploreDown" type="Control" parent="Explore/ArrowDown"]

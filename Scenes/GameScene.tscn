@@ -36,7 +36,6 @@ texture = ExtResource( 5 )
 layer = 100
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBorderL"]
-motion_mirroring = Vector2( 0, 0.01 )
 
 [node name="Border" type="Sprite" parent="ParallaxBorderL/ParallaxLayer"]
 position = Vector2( -32, 32 )
@@ -86,7 +85,6 @@ texture = ExtResource( 4 )
 layer = 100
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBorderR"]
-motion_mirroring = Vector2( 0, 0.01 )
 
 [node name="Border" type="Sprite" parent="ParallaxBorderR/ParallaxLayer"]
 position = Vector2( 32, 32 )
@@ -146,7 +144,7 @@ flip_h = true
 [node name="Tiles" type="Node2D" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 512, 304 )
+position = Vector2( 512, 136 )
 current = true
 limit_left = -64
 limit_top = -480

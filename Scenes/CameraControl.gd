@@ -3,14 +3,16 @@ class_name PanningCamera2D
 
 const MIN_ZOOM: float = 0.1
 const MAX_ZOOM: float = 1.0
-const ZOOM_RATE: float = 8.0
+const ZOOM_RATE: float = 4.0
 const ZOOM_INCREMENT: float = 0.1
 
-var _target_zoom: float = 1.0
+var _target_zoom: float = 0.5
 
 var scene = null
 
 onready var _tween: Tween = $Tween
+
+# need to limit camera zoom based on how many rooms have been built or something.
 
 func _physics_process(delta: float) -> void:
 	zoom = lerp(zoom, _target_zoom * Vector2.ONE, ZOOM_RATE * delta)

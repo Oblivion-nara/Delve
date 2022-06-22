@@ -5,6 +5,9 @@ onready var roomObject = preload("res://Scenes/Room.tscn")
 onready var world = $TileMap
 onready var rooms = $Rooms
 onready var exploreArrows = $ControlArrows
+onready var buildUI = $CanvasLayer/HBoxContainer/Abilities/Build
+#onready var tradeUI = $CanvasLayer/HBoxContainer/Abilities/Trade
+onready var turnCounter = $CanvasLayer/HBoxContainer/EndTurnButton/Turns
 #onready var tileSize = world.cell_size.x
 
 # click detection stuff
@@ -18,7 +21,7 @@ var leftLimit = -5
 var depthLimit = 20
 
 # I think we should add more resources at lower depths, otherwise there's no real need to go deeper
-var turnCounter = 1
+var turn = 1
 var numberOfRooms = 0 # not sure why this would be useful but it's here
 #var materials = 20
 #var tools = 20
@@ -45,6 +48,10 @@ func _unhandled_input(event):
 				selectedRoom = get_room_object(selectedTile)
 				if selectedRoom:
 					place_explore_arrows(selectedRoom)
+	if event.is_action_pressed("ui_cancel"):
+		get_tree().quit()
+	if event.is_action_pressed("ui_select"):
+		end_turn()
 
 func convert_to_room(worldCoords): # (Vector2 world coords) You could definitely use a simple formula for these instead of TileMap functions, but i don't want to
 	var newCoords = world.world_to_map(worldCoords - world.global_position)
@@ -99,7 +106,11 @@ func build_room(newPos, oldPos): # (Vector2 tile coords, Vector2 tile coords) bu
 			newRoom.connections.left = true
 			oldRoom.connections.right = true
 		numberOfRooms += 1
-#	canExplore = false
+	canExplore = false
+	buildUI.text = "Build\nUnavailable"
+
+func remove_room(pos): # (Vector2 tile coords) delete room and remove connections from adjacent rooms
+	pass
 
 func build_connection(newPos, OldPos, direction): # create a doorway between two already existing rooms
 	var newRoom = get_room_object(Vector2(newPos))
@@ -123,8 +134,10 @@ func build_connection(newPos, OldPos, direction): # create a doorway between two
 		oldRoom.connections.down = true
 		newRoom.connections.up = true
 		newRoom.stairs.visible = true
+	canExplore = false
+	buildUI.text = "Build\nUnavailable"
 
-func destroy_room(pos): # (Vector2 tile coords) delete room and remove connections from adjacent rooms
+func remove_connection(room1, room2): # (Vector2 tile coords) delete connection between two adjacent rooms
 	pass
 
 
@@ -149,10 +162,18 @@ func get_adjacent_rooms(tiles): # (array of Vector2 tile coords) check if there 
 		for n in rooms.get_children():
 			if str(tiles[0]) == str(n.name):
 				adjacents[0] = n
-			if str(tiles[1]) == str(n.name):
+			elif str(tiles[1]) == str(n.name):
 				adjacents[1] = n
-			if str(tiles[2]) == str(n.name):
+			elif str(tiles[2]) == str(n.name):
 				adjacents[2] = n
-			if str(tiles[3]) == str(n.name):
+			elif str(tiles[3]) == str(n.name):
 				adjacents[3] = n
 	return adjacents # [object, object, object, object]
+
+
+func end_turn():
+	remove_explore_arrows()
+	canExplore = true
+	buildUI.text = "Build\nAvailable"
+	turn += 1
+	turnCounter.text = "Turn: " + str(turn)
