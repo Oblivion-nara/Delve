@@ -50,6 +50,7 @@ func generate_map():
 		for c in mapWidth:
 			var t = tile.instance()
 			t.position = Vector2(c, r) * tilesize + Vector2(tilesize/2.0,startHeight)
+			t.name = str(r) + "," + str(c)
 			gen_textures(r,c,t)
 			tiles.add_child(t)
 	map = tiles.get_children()

@@ -1,6 +1,6 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Sprites/Coin.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/ArrowDown.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/roomLeft.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/room.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/dirt1.png" type="Texture" id=4]
@@ -9,6 +9,8 @@
 [ext_resource path="res://Sprites/roomRight.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/stairsDown.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/stairs.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/ArrowRight.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/ArrowLeft.png" type="Texture" id=11]
 
 [node name="Dirt" type="Node2D"]
 script = ExtResource( 5 )
@@ -55,38 +57,35 @@ mouse_filter = 1
 [node name="Arrows" type="Node2D" parent="."]
 
 [node name="ArrowLeft" type="Sprite" parent="Arrows"]
-position = Vector2( -32, 0 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( -40, 0 )
 z_index = 1
-texture = ExtResource( 1 )
+texture = ExtResource( 11 )
 
 [node name="ControlLeft" type="Control" parent="Arrows/ArrowLeft"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -64.0
-margin_top = -64.0
+margin_left = -16.0
+margin_top = -16.0
 mouse_filter = 1
 
 [node name="ArrowRight" type="Sprite" parent="Arrows"]
-position = Vector2( 32, 0 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 40, 0 )
 z_index = 1
-texture = ExtResource( 1 )
+texture = ExtResource( 10 )
 
 [node name="ControlRight" type="Control" parent="Arrows/ArrowRight"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -64.0
-margin_top = -64.0
+margin_left = -16.0
+margin_top = -16.0
 mouse_filter = 1
 
 [node name="ArrowDown" type="Sprite" parent="Arrows"]
-position = Vector2( 0, 32 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( -2.38419e-07, 32 )
 z_index = 1
 texture = ExtResource( 1 )
 
@@ -95,8 +94,8 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -64.0
-margin_top = -64.0
+margin_left = -16.0
+margin_top = -16.0
 mouse_filter = 1
 
 [connection signal="gui_input" from="Control" to="." method="_on_Control_gui_input"]

@@ -34,8 +34,8 @@ func _input(event: InputEvent) -> void:
 				position.x = self.limit_right
 			if position.y < self.limit_top:
 				position.y = self.limit_top
-#			if position.y > self.limit_bottom:
-#				position.y = self.limit_bottom
+			if position.y > self.limit_bottom:
+				position.y = self.limit_bottom
 
 func set_scene(scene):
 	self.scene = scene

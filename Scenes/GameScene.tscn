@@ -24,7 +24,7 @@ texture = ExtResource( 3 )
 layer = -50
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackgroundMountains"]
-motion_scale = Vector2( 0.5, 1 )
+motion_scale = Vector2( 0.5, 0.75 )
 motion_mirroring = Vector2( 1300, 0 )
 
 [node name="Background" type="Sprite" parent="ParallaxBackgroundMountains/ParallaxLayer"]
@@ -247,15 +247,16 @@ margin_left = 16.0
 margin_top = 80.0
 margin_right = 348.0
 margin_bottom = 213.0
-text = "right click to drag the camera, and scroll to zoom.
+text = "SO, I decided to remake the building system in a different way...
+Check out the 'World' scene to see it
 
-I want to add darkness to the underground
-so that you can only see 1 space away
-from where you have dug.
-The camera should also only be able to move as far 
-as you have explored.
+I want to add darkness to the underground so that you can only see 1 space away from where you have dug.
+The camera should also only be able to move as far  as you have explored.
 
-account for screensize with top dirt layer."
+account for screensize with top dirt layer.
+
+Should the map be a limited width, or keep expanding outwards as the player explores?"
+autowrap = true
 percent_visible = 0.0
 
 [node name="backgroundBlack" type="CanvasLayer" parent="."]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Player_Idle.png-457505a3f4687efbf18dcdc0197f822d.stex"
+path="res://.import/ArrowLeft.png-95bd1fcc5ad0c5ef7832a005830cf345.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Player_Idle.png"
-dest_files=[ "res://.import/Player_Idle.png-457505a3f4687efbf18dcdc0197f822d.stex" ]
+source_file="res://Sprites/ArrowLeft.png"
+dest_files=[ "res://.import/ArrowLeft.png-95bd1fcc5ad0c5ef7832a005830cf345.stex" ]
 
 [params]
 
