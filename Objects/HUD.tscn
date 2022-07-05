@@ -1,0 +1,79 @@
+[gd_scene format=2]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -512.0
+margin_top = -64.0
+margin_right = 512.0
+margin_bottom = -16.0
+
+[node name="Resources" type="HBoxContainer" parent="HBoxContainer"]
+margin_right = 338.0
+margin_bottom = 48.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Materials" type="Label" parent="HBoxContainer/Resources"]
+margin_top = 8.0
+margin_right = 167.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Materials
+20/50"
+align = 1
+
+[node name="Tools" type="Label" parent="HBoxContainer/Resources"]
+margin_left = 171.0
+margin_top = 8.0
+margin_right = 338.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Tools
+20/50"
+align = 1
+
+[node name="Output" type="Label" parent="HBoxContainer"]
+margin_left = 342.0
+margin_top = 17.0
+margin_right = 681.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Abilities" type="HBoxContainer" parent="HBoxContainer"]
+margin_left = 685.0
+margin_right = 1024.0
+margin_bottom = 48.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Build" type="Label" parent="HBoxContainer/Abilities"]
+margin_top = 8.0
+margin_right = 167.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Build
+Available"
+align = 1
+
+[node name="Trade" type="Label" parent="HBoxContainer/Abilities"]
+margin_left = 171.0
+margin_top = 8.0
+margin_right = 339.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Trade
+Available"
+align = 1

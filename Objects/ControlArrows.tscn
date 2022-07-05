@@ -6,7 +6,7 @@
 [ext_resource path="res://Sprites/ArrowUp.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/ArrowRight.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/ArrowLeft.png" type="Texture" id=6]
-[ext_resource path="res://Scenes/ControlArrows.gd" type="Script" id=7]
+[ext_resource path="res://Objects/ControlArrows.gd" type="Script" id=7]
 [ext_resource path="res://Sprites/ArrowDown.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/room.png" type="Texture" id=9]
 

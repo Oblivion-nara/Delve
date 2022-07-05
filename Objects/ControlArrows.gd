@@ -75,25 +75,25 @@ func set_visibility(directions, selected): # (array of Vector2 tile coords, Vect
 func _on_ExploreUp_gui_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT:
-			get_parent().build_room(Vector2(selectedTile.x,selectedTile.y-1), selectedTile)
+			get_parent().explore_tile(Vector2(selectedTile.x,selectedTile.y-1), selectedTile)
 			get_parent().remove_explore_arrows()
 
 func _on_ExploreLeft_gui_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT:
-			get_parent().build_room(Vector2(selectedTile.x-1,selectedTile.y), selectedTile)
+			get_parent().explore_tile(Vector2(selectedTile.x-1,selectedTile.y), selectedTile)
 			get_parent().remove_explore_arrows()
 
 func _on_ExploreRight_gui_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT:
-			get_parent().build_room(Vector2(selectedTile.x+1,selectedTile.y), selectedTile)
+			get_parent().explore_tile(Vector2(selectedTile.x+1,selectedTile.y), selectedTile)
 			get_parent().remove_explore_arrows()
 
 func _on_ExploreDown_gui_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT:
-			get_parent().build_room(Vector2(selectedTile.x,selectedTile.y+1), selectedTile)
+			get_parent().explore_tile(Vector2(selectedTile.x,selectedTile.y+1), selectedTile)
 			get_parent().remove_explore_arrows()
 
 
